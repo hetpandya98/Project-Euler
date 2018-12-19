@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+
+int main(){
+    ll t;
+    cin>>t;
+    while(t--){
+        ll i,j,n,k,x,maxi=0,mul=1;
+        string s;
+        cin>>n>>k;
+        cin>>s;
+        for(i=0;i<n-k;i++){
+            for(j=0;j<k;j++){
+                x=s[i+j]-48;
+                mul*=x;
+            }
+            maxi=max(maxi,mul);
+            mul=1;
+        }
+        cout<<maxi<<endl;
+    }
+    return 0;
+}

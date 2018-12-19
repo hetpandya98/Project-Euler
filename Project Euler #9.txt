@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    ll t;
+    cin>>t;
+    while(t--){
+        ll i,j,n,ans=-1;
+        cin>>n;
+        for(i=3;i<=n/3;i++){
+            for(j=n/3;j<=n/2;j++){
+                if((i*i)+(n-i-j)*(n-i-j)==(j*j)) ans=max(ans,i*j*(n-i-j));
+            }
+        }
+        cout<<ans<<endl;
+    }
+    return 0;
+}

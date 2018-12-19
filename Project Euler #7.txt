@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main() {
+    bool prime[1000001];
+    memset(prime, true, sizeof(prime));
+    for (int p=2; p*p<=1000000; p++){
+        if (prime[p] == true){
+            for (int i=p*2; i<=1000000; i += p)
+                prime[i] = false;
+        }
+    }
+    ll t;
+    cin>>t;
+    while(t--){
+        ll i,n,x=0;
+        cin>>n;
+        for(i=2;i<=1000000;i++){
+            if(prime[i]){
+                x++;
+            }
+            if(x==n){
+                cout<<i<<endl;
+                break;
+            }
+        }
+    }
+    return 0;
+}

@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+
+int main(){
+    ll t;
+    cin>>t;
+    while(t--){
+        ll i,j,k,n,x,y,flag,ans=0;
+        cin>>n;
+        ll a[6];
+        for(i=100;i<=999;i++){
+            for(j=100;j<=999;j++){
+                flag=0;
+                if(i*j<n){
+                    x=i*j;
+                    y=0;
+                    while(x!=0){
+                        a[y]=x%10;
+                        x/=10;
+                        y++;
+                    }
+                    for(k=0;k<y;k++){
+                        if(a[k]!=a[y-k-1]){
+                            flag=1;
+                            break;
+                        }
+                    }
+                    if(flag==0){
+                        ans=max(ans,i*j);
+                    }
+                }
+            }
+        }
+        cout<<ans<<endl;
+    }   
+    return 0;
+}
